@@ -1,0 +1,202 @@
+Test Cases for SauceDemo Website
+
+------------------------------------------------------------
+1. Login Page
+------------------------------------------------------------
+TC-LOGIN-01: Valid Login (Standard User)
+- Preconditions: The user has valid login credentials (e.g., standard_user).
+- Steps:
+  1. Open the login page.
+  2. Enter the correct username and password.
+  3. Click the "Login" button.
+- Expected Result: The user is redirected to the Inventory page.
+
+TC-LOGIN-02: Invalid Credentials
+- Preconditions: Use incorrect login credentials.
+- Steps:
+  1. Open the login page.
+  2. Enter an incorrect username and/or password.
+  3. Click the "Login" button.
+- Expected Result: An error message regarding invalid credentials is displayed.
+
+TC-LOGIN-03: Locked Out User
+- Preconditions: The user has a "locked_out_user" status.
+- Steps:
+  1. Open the login page.
+  2. Enter the locked_out_user credentials.
+  3. Click the "Login" button.
+- Expected Result: An error message indicating that the user is locked out is displayed.
+
+------------------------------------------------------------
+2. Inventory Page (Products List)
+------------------------------------------------------------
+TC-INVENTORY-01: Displaying the Products List
+- Preconditions: The user is logged in.
+- Steps:
+  1. Navigate to the Inventory page.
+- Expected Result: All products are displayed with images, names, descriptions, and prices.
+
+TC-INVENTORY-02: Add to Cart Functionality
+- Preconditions: The user is logged in.
+- Steps:
+  1. Click the "Add to Cart" button next to one or more products.
+- Expected Result: The shopping cart icon's item count updates to reflect the added items.
+
+TC-INVENTORY-03: Sorting Functionality
+- Preconditions: The user is logged in.
+- Steps:
+  1. Choose a sorting option (e.g., by name A-Z, Z-A, price low-to-high and high-to-low).
+- Expected Result: The product list is re-sorted according to the selected option.
+
+------------------------------------------------------------
+3. Product Details Page
+------------------------------------------------------------
+TC-PRODUCT-01: Viewing Product Details
+- Preconditions: The user is logged in and has access to the Inventory page.
+- Steps:
+  1. Click on a product's name or image.
+- Expected Result: Detailed product information is displayed (description, price, image).
+
+TC-PRODUCT-02: Add/Remove Product from Cart
+- Preconditions: The user is on the product details page.
+- Steps:
+  1. Click the "Add to Cart" button, then "Remove" (if applicable).
+- Expected Result: The product is either added to or removed from the cart.
+
+TC-PRODUCT-03: Returning to the Inventory Page
+- Preconditions: The user is on the product details page.
+- Steps:
+  1. Click the back link.
+- Expected Result: The user is redirected back to the products list page.
+
+------------------------------------------------------------
+4. Cart Page
+------------------------------------------------------------
+TC-CART-01: Displaying Items in the Cart
+- Preconditions: At least one product has been added to the cart.
+- Steps:
+  1. Open the Cart page.
+- Expected Result: A list of all added products is displayed.
+
+TC-CART-02: Remove Item Functionality
+- Preconditions: There are products in the cart.
+- Steps:
+  1. Click the "Remove" button next to a product.
+- Expected Result: The selected product is removed, and the cart list is updated.
+
+TC-CART-03: Checkout Button Functionality
+- Preconditions: There must be items in the cart.
+- Steps:
+  1. Click the "Checkout" button.
+- Expected Result: The user is redirected to the first step of the checkout process.
+
+------------------------------------------------------------
+5. Checkout Process
+------------------------------------------------------------
+TC-CHECKOUT-01: Customer Information Form in Checkout
+- Preconditions: The user is on the Cart page and has clicked "Checkout".
+- Steps:
+  1. Enter valid customer information (first name, last name, postal code).
+  2. Click "Continue".
+- Expected Result: The user proceeds to the Order Overview page.
+
+TC-CHECKOUT-02: Empty Fields in Checkout Form
+- Preconditions: The user is on the customer information page of the checkout.
+- Steps:
+  1. Leave one or more required fields empty.
+  2. Click "Continue".
+- Expected Result: An error message is displayed indicating which required fields are missing.
+
+TC-CHECKOUT-03: Order Overview Page
+- Preconditions: Valid customer information has been provided.
+- Steps:
+  1. Navigate to the Order Overview page.
+- Expected Result: The correct list of ordered products is displayed along with prices, applicable taxes, and the total sum.
+
+TC-CHECKOUT-04: Cancel Order Functionality
+- Preconditions: The user is on the Order Overview page.
+- Steps:
+  1. Click the "Cancel" button.
+- Expected Result: The user is redirected back to the Cart or Inventory page without confirming the order.
+
+TC-CHECKOUT-05: Finish Order Functionality
+- Preconditions: The user is on the Order Overview page.
+- Steps:
+  1. Click the "Finish" button.
+- Expected Result: The order is completed, and the Order Confirmation page is displayed with a confirmation message and a "Back Home" button.
+
+------------------------------------------------------------
+6. Side Menu (Hamburger Menu)
+------------------------------------------------------------
+TC-SIDEMENU-01: Opening the Menu
+- Preconditions: The user is on the Inventory page.
+- Steps:
+  1. Click the hamburger menu icon.
+- Expected Result: The menu appears with all available options.
+
+TC-SIDEMENU-02: Navigation to "All Items"
+- Preconditions: The side menu is open.
+- Steps:
+  1. Select "All Items".
+- Expected Result: The user is redirected to the products list page.
+
+TC-SIDEMENU-03: Navigation to "About"
+- Preconditions: The side menu is open.
+- Steps:
+  1. Select "About".
+- Expected Result: The user is redirected to the Sauce Labs information page.
+
+TC-SIDEMENU-04: Logout Functionality
+- Preconditions: The user is logged in.
+- Steps:
+  1. Select the "Logout" option from the menu.
+- Expected Result: The user is logged out and redirected to the login page.
+
+TC-SIDEMENU-05: Reset Functionality
+- Preconditions: The user has items in the cart or session data.
+- Steps:
+  1. Select "Reset".
+- Expected Result: The shopping cart and session data are reset to their initial state.
+
+------------------------------------------------------------
+7. Responsiveness Tests
+------------------------------------------------------------
+TC-RESPONSIVE-01: Desktop View
+- Preconditions: Using a desktop computer.
+- Steps:
+  1. Open the website.
+- Expected Result: The website layout is correct and all elements are displayed properly.
+
+TC-RESPONSIVE-02: Tablet View
+- Preconditions: Using a tablet device or simulator.
+- Steps:
+  1. Open the website.
+- Expected Result: The website design adapts to the tablet screen size.
+
+TC-RESPONSIVE-03: Mobile View
+- Preconditions: Using a mobile phone or simulator.
+- Steps:
+  1. Open the website.
+- Expected Result: All buttons, links, and functions are accessible, and the website design is adapted for smaller screens.
+
+------------------------------------------------------------
+8. Error Handling Tests
+------------------------------------------------------------
+TC-ERROR-01: Incorrect Login Error
+- Preconditions: Enter incorrect login credentials.
+- Steps:
+  1. Attempt to log in with an incorrect username and/or password.
+- Expected Result: An appropriate error message is displayed.
+
+TC-ERROR-02: Empty Fields in Checkout Form Error
+- Preconditions: The user is on the customer information page of the checkout.
+- Steps:
+  1. Leave one or more required fields empty.
+  2. Click "Continue".
+- Expected Result: An error message is displayed indicating that required fields are missing.
+
+TC-ERROR-03: Add to Cart / Cart Error
+- Preconditions: Simulate a situation where a product cannot be added (if applicable).
+- Steps:
+  1. Attempt to add a product to the cart.
+- Expected Result: An appropriate error message is displayed or alternative behavior is triggered, ensuring a consistent user experience.

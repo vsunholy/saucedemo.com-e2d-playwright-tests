@@ -1,0 +1,14 @@
+{
+    "stn": {
+        "username": "standard_user",
+        "password": "secret_sauce"
+    },
+    "lck": {
+        "username": "locked_out_user",
+        "password": "secret_sauce"
+    },
+    "inv": {
+        "username": "invalid_user",
+        "password": "invalid_password"
+    }
+}

@@ -1,0 +1,42 @@
+# BugList.txt for SauceDemo Website
+
+------------------------------------------------------------
+Bug ID: 001
+Title: Locked Out User Login Error Message Inconsistency
+Description: When attempting to log in using the "locked_out_user" account, the system displays an error message. The styling and text of this error may not fully align with standard UI/UX guidelines.
+Steps to Reproduce:
+  1. Navigate to https://www.saucedemo.com
+  2. Enter username: locked_out_user and password: secret_sauce
+  3. Click on the login button and observe the error message.
+Severity: Minor (Note: This behavior is intended for testing login failure scenarios.)
+
+------------------------------------------------------------
+Bug ID: 002
+Title: Problem User Product Image Display Issue
+Description: Logging in with the "problem_user" account can result in product images that are misaligned or fail to load properly, which might confuse users.
+Steps to Reproduce:
+  1. Navigate to https://www.saucedemo.com
+  2. Login using username: problem_user and password: secret_sauce
+  3. Review the product inventory page and note any issues with image display.
+Severity: Medium (Often an intentional setting to test image handling.)
+
+------------------------------------------------------------
+Bug ID: 003
+Title: Performance Glitch with Performance Glitch User
+Description: The "performance_glitch_user" account is set up to simulate performance issues. Users may experience noticeable delays or slow loading times when navigating the product page.
+Steps to Reproduce:
+  1. Navigate to https://www.saucedemo.com
+  2. Login using username: performance_glitch_user and password: secret_sauce
+  3. Observe the loading time for the product inventory.
+Severity: Low/Medium (This is by design to test performance handling.)
+
+------------------------------------------------------------
+Bug ID: 004
+Title: Inconsistent Sorting Functionality
+Description: When sorting products (by price or name), the ordering might not be as expected, which could indicate a logic or UI inconsistency.
+Steps to Reproduce:
+  1. Login using the "standard_user" account.
+  2. Use the sort dropdown to sort products by price or name.
+  3. Compare the displayed order with the expected sorting sequence.
+Severity: Minor to Medium (Further verification needed to determine if this is a design choice or an actual bug.)
+------------------------------------------------------------

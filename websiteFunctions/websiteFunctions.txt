@@ -1,0 +1,50 @@
+SauceDemo Website Functionality Description
+
+1. Login Page:
+   - Input fields for username and password.
+   - Login button.
+   - Error messages for invalid credentials.
+   - Handling of different user types (e.g., standard_user, locked_out_user, problem_user, performance_glitch_user).
+
+2. Inventory Page (Products List):
+   - Display of a list of products with images, names, descriptions, and prices.
+   - "Add to Cart" buttons for each product.
+   - Sorting functionality:
+         * By name: A-Z and Z-A.
+         * By price: low-to-high and high-to-low.
+   - Shopping cart icon displaying the number of added items.
+
+3. Product Details Page:
+   - Detailed description of the selected product.
+   - Ability to add or remove the product from the cart.
+   - Link to return to the products list.
+
+4. Cart Page:
+   - Display of the list of added products.
+   - Functionality to remove products from the cart.
+   - Checkout button.
+
+5. Checkout Process:
+   a. Checkout Step 1:
+      - Form to enter customer information (first name, last name, postal code).
+      - Continue button.
+   b. Checkout Step 2 (Order Overview):
+      - List of ordered products with prices, taxes, and the total sum.
+      - Options: Cancel and Finish the order.
+   c. Order Confirmation Page:
+      - Order confirmation message.
+      - Button to return to the home page (Back Home).
+
+6. Side Menu Functionality (Hamburger Menu):
+   - Accessible from the Inventory page.
+   - Menu options:
+         * All Items (link to the products list)
+         * About (redirects to the Sauce Labs information page)
+         * Logout (logout function)
+         * Reset (reset the shopping cart and session data)
+
+7. Responsiveness:
+   - The website design adapts to different screen sizes (responsive design).
+
+8. Error Handling and Messages:
+   - Appropriate messages for incorrect login or incomplete data during the checkout process.

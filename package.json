@@ -1,0 +1,21 @@
+{
+  "name": "saucedemo.com-e2d-playwright-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "playwright.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.51.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^22.13.9"
+  }
+}
