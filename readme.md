@@ -5,7 +5,7 @@
 [![Playwright Tests](https://img.shields.io/badge/Powered%20by-Playwright-45ba4b.svg)](https://playwright.dev/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/vsunholy/saucedemo.com-e2d-playwright-tests/playwright.yml?branch=main)](https://github.com/vsunholy/saucedemo.com-e2d-playwright-tests/actions)
+
 
 <img src="https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png" height="200" alt="Playwright Logo"/>
 
