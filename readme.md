@@ -1,314 +1,175 @@
-<div align="center">
-  
-# 🔥 Saucedemo.com End-to-End Tests with Playwright 🔥
+# 🚀 SauceDemo E2E Playwright Tests 🎉
 
-[![Playwright Tests](https://img.shields.io/badge/Powered%20by-Playwright-45ba4b.svg)](https://playwright.dev/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Welcome to the **SauceDemo E2E Playwright Tests** repository! This project provides a robust suite of end-to-end tests for the [SauceDemo](https://www.saucedemo.com/) web application using [Playwright](https://playwright.dev/). These tests cover everything from user authentication to inventory management and responsive design, ensuring a smooth and reliable user experience.
 
+---
 
-<img src="https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png" height="200" alt="Playwright Logo"/>
+## 📑 Table of Contents
+- [🚀 Introduction](#-introduction)
+- [🔧 Prerequisites](#-prerequisites)
+- [⚙️ Installation](#-installation)
+- [🛠️ Running the Tests](#-running-the-tests)
+- [📂 Project Structure](#-project-structure)
+- [💻 Code Examples](#-code-examples)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [📞 Contact](#-contact)
 
-Robust, maintainable and blazing fast E2E tests for the Sauce Demo application
-</div>
+---
 
-## ✨ Overview
+## 🚀 Introduction
+This repository contains automated end-to-end tests for the SauceDemo application. Using Playwright, we simulate user interactions to verify that all features—such as login, inventory display, shopping cart operations, and responsive layouts—work flawlessly. Enjoy exploring the tests and feel free to contribute improvements!
 
-This repository showcases automated end-to-end tests for the [Sauce Demo](https://www.saucedemo.com) website, a sample e-commerce application designed for testing purposes. These tests demonstrate how to leverage Playwright with JavaScript to create reliable, maintainable test automation for modern web applications.
+---
 
-The test suite covers:
+## 🔧 Prerequisites
+Before running the tests, make sure you have:
+- [Node.js](https://nodejs.org/) (v14+)
+- [npm](https://www.npmjs.com/)
+- [Playwright](https://playwright.dev/)
 
-- 🔐 User authentication (login/logout)
-- 🛍️ Product browsing and filtering
-- 🛒 Shopping cart operations
-- 💳 Checkout process
-- 👤 User profile management
+---
 
-## 🛠️ Technology Stack
-
-- **[Playwright](https://playwright.dev/)**: Modern end-to-end testing framework for web applications
-- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: ES6+ for clean, modern test code
-- **[Node.js](https://nodejs.org/)**: JavaScript runtime environment
-- **[GitHub Actions](https://github.com/features/actions)**: CI/CD workflow automation
-
-## 📂 Project Structure
-
-```
-📦 saucedemo.com-e2d-playwright-tests
- ┣ 📂 .github/workflows    # GitHub Actions workflow configurations
- ┣ 📂 page-objects         # Page Object Models for different sections
- ┣ 📂 tests                # Test files organized by feature or page
- ┣ 📂 utils                # Helper functions and utilities
- ┣ 📜 playwright.config.js # Playwright configuration
- ┣ 📜 package.json         # Project dependencies and scripts
- ┗ 📜 .eslintrc.js         # ESLint configuration
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (version 14 or higher)
-- npm (comes with Node.js)
-
-### 💻 Installation
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/vsunholy/saucedemo.com-e2d-playwright-tests.git
-   cd saucedemo.com-e2d-playwright-tests
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Install Playwright browsers:
-   ```bash
-   npx playwright install
-   ```
-
-### 🧪 Running Tests
-
-Run all tests:
+## ⚙️ Installation
+Clone the repository and install the dependencies:
 ```bash
-npm test
+git clone https://github.com/vsunholy/saucedemo.com-e2d-playwright-tests.git
+cd saucedemo.com-e2d-playwright-tests
+npm install
 ```
 
-Run tests in a specific browser:
+---
+
+## 🛠️ Running the Tests
+Execute all tests with:
 ```bash
-npx playwright test --project=chromium
+npx playwright test
 ```
-
-Run a specific test file:
+To run a specific test file (e.g., login tests), use:
 ```bash
 npx playwright test tests/login.spec.js
 ```
-
-Run tests in UI mode for debugging:
-```bash
-npx playwright test --ui
-```
-
-## 📊 Test Reports
-
-Generate and open HTML test report:
+Generate and view the HTML report by running:
 ```bash
 npx playwright show-report
 ```
 
-## 🔍 Code Snippets
+---
 
-### Page Object Pattern Example
-
-```javascript
-// page-objects/LoginPage.js
-class LoginPage {
-  /**
-   * @param {import('@playwright/test').Page} page
-   */
-  constructor(page) {
-    this.page = page;
-    
-    // Locators
-    this.usernameInput = '[data-test="username"]';
-    this.passwordInput = '[data-test="password"]';
-    this.loginButton = '[data-test="login-button"]';
-    this.errorMessage = '[data-test="error"]';
-  }
-
-  /**
-   * Navigate to the login page
-   */
-  async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
-  }
-
-  /**
-   * Login with the provided credentials
-   */
-  async login(username, password) {
-    await this.page.fill(this.usernameInput, username);
-    await this.page.fill(this.passwordInput, password);
-    await this.page.click(this.loginButton);
-  }
-
-  /**
-   * Get the error message text if present
-   */
-  async getErrorMessage() {
-    return this.page.textContent(this.errorMessage);
-  }
-}
-
-module.exports = { LoginPage };
+## 📂 Project Structure
 ```
-
-### Test Example
-
-```javascript
-// tests/login.spec.js
-const { test, expect } = require('@playwright/test');
-const { LoginPage } = require('../page-objects/LoginPage');
-const { InventoryPage } = require('../page-objects/InventoryPage');
-
-test.describe('Login Functionality', () => {
-  /** @type {LoginPage} */
-  let loginPage;
-
-  test.beforeEach(async ({ page }) => {
-    loginPage = new LoginPage(page);
-    await loginPage.goto();
-  });
-
-  test('should login with valid credentials', async ({ page }) => {
-    // Arrange
-    const inventoryPage = new InventoryPage(page);
-    
-    // Act
-    await loginPage.login('standard_user', 'secret_sauce');
-    
-    // Assert
-    await expect(page).toHaveURL(/inventory.html/);
-    await expect(inventoryPage.getTitle()).toBeVisible();
-  });
-
-  test('should display error with locked out user', async () => {
-    // Act
-    await loginPage.login('locked_out_user', 'secret_sauce');
-    
-    // Assert
-    const errorMessage = await loginPage.getErrorMessage();
-    expect(errorMessage).toContain('Sorry, this user has been locked out');
-  });
-
-  test('should display error with invalid credentials', async () => {
-    // Act
-    await loginPage.login('invalid_user', 'invalid_password');
-    
-    // Assert
-    const errorMessage = await loginPage.getErrorMessage();
-    expect(errorMessage).toContain('Username and password do not match');
-  });
-});
+.
+├── fixtures
+│   └── users.json        // User credentials for tests :contentReference[oaicite:0]{index=0}
+├── tests
+│   ├── inventory.spec.js // Inventory related tests :contentReference[oaicite:1]{index=1}
+│   ├── login.spec.js     // Login functionality tests :contentReference[oaicite:2]{index=2}
+│   └── responsive.spec.js // Responsive design tests :contentReference[oaicite:3]{index=3}
+└── utils
+    └── page-helpers.js   // Helper functions (e.g., login) :contentReference[oaicite:4]{index=4}
 ```
-
-### Test Data Helper
-
-```javascript
-// utils/test-data.js
-/**
- * Collection of test users for authentication tests
- * @type {Object}
- */
-const TEST_USERS = {
-  STANDARD: {
-    username: 'standard_user',
-    password: 'secret_sauce',
-    description: 'User with standard permissions'
-  },
-  LOCKED_OUT: {
-    username: 'locked_out_user',
-    password: 'secret_sauce',
-    description: 'User that has been locked out'
-  },
-  PROBLEM: {
-    username: 'problem_user',
-    password: 'secret_sauce',
-    description: 'User that encounters various issues'
-  },
-  PERFORMANCE_GLITCH: {
-    username: 'performance_glitch_user',
-    password: 'secret_sauce',
-    description: 'User that experiences slow load times'
-  }
-};
-
-/**
- * Sample customer information for checkout tests
- * @type {Object}
- */
-const CUSTOMER_INFO = {
-  firstName: 'Test',
-  lastName: 'Customer',
-  postalCode: '12345'
-};
-
-module.exports = { TEST_USERS, CUSTOMER_INFO };
-```
-
-## 🔄 CI/CD Integration
-
-This repository includes GitHub Actions workflow configurations to run tests automatically on push and pull requests. Here's a snippet from our workflow file:
-
-```yaml
-# .github/workflows/playwright.yml
-name: Playwright Tests
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm ci
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
-```
-
-## 🌟 Best Practices Demonstrated
-
-- **Page Object Model**: Separation of test logic from page interactions
-- **Data-driven testing**: Parameterized tests for different scenarios
-- **Visual testing**: Screenshots for visual comparison
-- **Parallel execution**: Tests run concurrently for faster feedback
-- **Retry logic**: Automatic retry for flaky tests
-- **Cross-browser testing**: Tests run across multiple browsers
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-test`
-3. Commit your changes: `git commit -am 'Add new test for feature X'`
-4. Push to the branch: `git push origin feature/new-test`
-5. Submit a pull request
-
-<div align="center">
-  
-## 📚 Resources
-
-| Resource | Link |
-|----------|------|
-| Playwright Docs | [playwright.dev/docs/intro](https://playwright.dev/docs/intro) |
-| Sauce Demo Website | [saucedemo.com](https://www.saucedemo.com) |
-| JavaScript MDN | [developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-
-## 📜 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-<img src="https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png" height="50" alt="Playwright Logo"/>
+## 💻 Code Examples
 
-**Made with ❤️ by Test Automation Engineers**
-</div>
+### Login Helper Function
+This function automates the login process by filling in the username and password, then clicking the login button.
+```js
+async function login(page, username, password) {
+  await page.fill('#user-name', username);
+  await page.fill('#password', password);
+  await page.click('#login-button');
+}
+
+module.exports = { login };
+```
+*Source: page-helpers.js* :contentReference[oaicite:5]{index=5}
+
+---
+
+### Login Test Example
+A test to verify that valid users can log in successfully.
+```js
+const { test, expect } = require('@playwright/test');
+const { login } = require('../utils/page-helpers');
+const users = require('../fixtures/users.json');
+
+test.describe('Login Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('https://www.saucedemo.com/');
+  });
+
+  test('Login with valid credentials', async ({ page }) => {
+    const user = users.stn;
+    await login(page, user.username, user.password);
+    await expect(page).toHaveURL(/inventory.html/);
+  });
+});
+```
+*Source: login.spec.js* :contentReference[oaicite:6]{index=6}
+
+---
+
+### Inventory Test Example
+A test to ensure that the inventory items are displayed correctly after login.
+```js
+const { test, expect } = require('@playwright/test');
+const { login } = require('../utils/page-helpers');
+const users = require('../fixtures/users.json');
+
+test.describe('Inventory tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('https://www.saucedemo.com/');
+  });
+
+  test('Login with valid credentials and check inventory items', async ({ page }) => {
+    const user = users.stn;
+    await login(page, user.username, user.password);
+    await expect(page).toHaveURL(/inventory.html/);
+    // Further inventory item validations...
+  });
+});
+```
+*Source: inventory.spec.js* :contentReference[oaicite:7]{index=7}
+
+---
+
+### Responsive Design Test Example
+A test to verify that the website layout adapts correctly on mobile devices.
+```js
+const { test, expect } = require('@playwright/test');
+
+test.describe('Screen tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('https://www.saucedemo.com/');
+  });
+
+  test('should display the website correctly on mobile devices', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await expect(page.locator('.login_logo')).toBeVisible();
+  });
+});
+```
+*Source: responsive.spec.js* :contentReference[oaicite:8]{index=8}
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! If you have suggestions, bug fixes, or improvements:
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/my-new-feature`).
+3. Commit your changes (`git commit -am 'Add some feature'`).
+4. Push to the branch (`git push origin feature/my-new-feature`).
+5. Open a pull request.
+
+Please follow the existing code style and include relevant tests.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+Made with ❤️ and 🚀 by the SauceDemo E2E Playwright Tests Team!
+``` 

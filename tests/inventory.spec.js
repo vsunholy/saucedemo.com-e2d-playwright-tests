@@ -177,7 +177,7 @@ test.describe('Inventory tests', () => {
       await expect(page).toHaveURL(/checkout-step-one.html/);
       await page.fill('[data-test="firstName"]', 'Bat');
       await page.fill('[data-test="lastName"]', 'man');
-      // Postal code intentionally left empty
+    
       await page.locator('[data-test="continue"]').click();
       await expect(page.locator('[data-test="error"]')).toBeVisible();
       await expect(page.locator('[data-test="error"]')).toContainText('Postal Code');
@@ -200,7 +200,7 @@ test.describe('Inventory tests', () => {
       await page.fill('[data-test="postalCode"]', '12345');
       await page.locator('[data-test="continue"]').click();
       await expect(page).toHaveURL(/checkout-step-two.html/);
-      await expect(page.locator('.cart_item').first()).toBeVisible(); // At least one item
+      await expect(page.locator('.cart_item').first()).toBeVisible(); 
       await expect(page.locator('.summary_subtotal_label')).toBeVisible();
       await expect(page.locator('.summary_subtotal_label')).toContainText('$');
       await expect(page.locator('.summary_tax_label')).toBeVisible();
