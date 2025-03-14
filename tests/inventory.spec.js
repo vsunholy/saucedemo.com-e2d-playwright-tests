@@ -317,4 +317,23 @@ test.describe('Inventory tests', () => {
       await expect(inventoryItems.first()).toBeVisible();
     });
   });
+
+  test.describe('Checkout Form Error Handling', () => {
+    test('should display an error when required fields are empty in the checkout form', async ({ page }) => {
+      await page.goto('https://www.saucedemo.com/');
+      await page.fill('#user-name', 'standard_user');
+      await page.fill('#password', 'secret_sauce');
+      await page.click('#login-button');
+      await page.waitForSelector('.inventory_list');
+      const firstItem = page.locator('.inventory_item').first();
+      await firstItem.locator('button', { hasText: 'Add to cart' }).click();
+      await page.click('.shopping_cart_link');
+      await page.click('#checkout');
+      await page.click('[data-test="continue"]');
+      const errorMessage = page.locator('[data-test="error"]');
+      await expect(errorMessage).toBeVisible();
+      await expect(errorMessage).toHaveText('Error: First Name is required');
+    });
+  });
+
 });

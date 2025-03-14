@@ -195,8 +195,3 @@ TC-ERROR-02: Empty Fields in Checkout Form Error
   2. Click "Continue".
 - Expected Result: An error message is displayed indicating that required fields are missing.
 
-TC-ERROR-03: Add to Cart / Cart Error
-- Preconditions: Simulate a situation where a product cannot be added (if applicable).
-- Steps:
-  1. Attempt to add a product to the cart.
-- Expected Result: An appropriate error message is displayed or alternative behavior is triggered, ensuring a consistent user experience.
