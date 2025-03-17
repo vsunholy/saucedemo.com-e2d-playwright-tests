@@ -26,7 +26,7 @@ test.describe('Screen tests', () => {
     });
   });
 
- 
+
   test.describe('Mobile View', () => {
     test('should display the website correctly on mobile devices and ensure all interactive elements are accessible', async ({ page }) => {
       await page.setViewportSize({ width: 375, height: 667 });
